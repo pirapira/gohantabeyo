@@ -1,0 +1,15 @@
+<h1><%= h(@activity.name)%>たい同士を発見します</h1>
+
+<p>相手もあなたと<%=h(@activity.name)%>たいというときtwitterのメッセージでお知らせします。
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+</p>
+<% form_tag(:action => 'wish') do %>
+@<%= text_field_tag "wishee_screen_name" %>
+と<%= submit_tag "#{h(@activity.name)}たい"%> (現在<%= @activity.waitnum %>登録)
+<%= hidden_field_tag 'activity_id', @activity.id %> <br />
+
+最近 <% @recent_wishers.each do |r| %>
+<%= link_to h("@" + r[:screen_name]), :action => 'wish', :wishee_screen_name => r[:screen_name], :activity_id => @activity.id %>
+<% end %>
+<% end %>
+<p>何人でも相手を登録できます。</p>

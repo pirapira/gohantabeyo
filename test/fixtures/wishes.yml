@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  wisher_id: 1
+  wishee_id: 1
+  activity_id: 1
+
+two:
+  wisher_id: 1
+  wishee_id: 1
+  activity_id: 1
